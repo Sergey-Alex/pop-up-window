@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .my-buttons {
+        display: flex;
+        justify-content: space-around;
+        margin: 100px auto;
+        width: 75%;
+        position: relative;
+    }
+    .my-button {
+        text-decoration: none;
+        color: #fff;
+        background: #34548b;
+        padding: 7px 0;
+        border-radius: 5px;
+        transition: 0.2s ease-in-out;
+        width: 180px;
+        display: block;
+        text-align: center;
+    }
+    .my-button:hover {
+        background: blue;
+    }
+    .tooltip {
+        position: absolute;
+        border: 1px solid blue;
+        color: darkblue;
+        display: block;
+        width: 80px;
+        top: 50px;
+        opacity: 0;
+        visibility: hidden;
+    }
+</style>
+<body>
+<div class="my-buttons">
+    <a href="#" class="my-button">Главная</a><div class="tooltip">Главная</div>
+    <a href="#" class="my-button">Блог</a><div class="tooltip">Блог</div>
+    <a href="#" class="my-button">Новости</a><div class="tooltip">Новости</div>
+    <a href="#" class="my-button">Лента</a><div class="tooltip">Лента</div>
+</div>
+<script>
+    let links = document.getElementsByClassName('my-button');
+
+    for (let i = 0; i < links.length; i++){
+       links[i].onmouseover = function () {
+           let tooltip = document.getElementsByClassName('tooltip');
+           let too = tooltip[i];
+           too.style.opacity = '1';
+           too.style.visibility = 'visible';
+           too.style.transition = '0.5s';
+           too.style.transitionDelay = '0.5s';
+       }
+
+       links[i].onmouseout = function () {
+           let tooltip = document.getElementsByClassName('tooltip');
+           let too = tooltip[i];
+           too.style.opacity = '0';
+           too.style.visibility = 'hidden';
+           too.style.transition = '0.5s';
+           too.style.transitionDelay = '0.5s';
+       }
+    }
+
+</script>
+</body>
+</html>
